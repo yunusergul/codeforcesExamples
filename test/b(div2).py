@@ -1,0 +1,40 @@
+# cook your dish here
+n,m=map(int,input().split())
+l=[]
+l1=[0]*n
+for i in range(n):
+    s=input()
+    l.append(s)
+i=0
+l3=[]
+l4=[]
+while(i<n):
+    if(l1[i]==0):
+        s1=l[i]
+        s2=s1[::-1]
+        f=0
+        for j in range(i+1,n):
+            if(l[j]==s2):
+                l3.append(l[i])
+                l3.append(l[j])
+                l1[j]=1
+                f=1
+                break
+        if(f==0):
+            if(s1==s2):
+                l4.append(s1)
+    i+=1
+s1=''
+m=len(l3)
+i=0
+while(i<m):
+    s1=s1+l3[i]
+    i=i+2
+if(len(l4)!=0):
+    s1=s1+l4[0]
+j=m-1
+while(j>0):
+    s1=s1+l3[j]
+    j=j-2
+print(len(s1))
+print(s1)
